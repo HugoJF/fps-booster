@@ -63,7 +63,7 @@ jobs:
     - name: Zip plugin
       run : |
         cd artifact
-        zip -r deathmatch-loader *
+        zip -r fps-booster *
         cd ..
         mv artifact/fps-booster.zip .
 
