@@ -61,11 +61,7 @@ public void StopSoundCookieHandler(int client, CookieMenuAction action, any info
 		
 		case CookieMenuAction_SelectOption:
 		{
-			if (CheckCommandAccess(client, "sm_fpsboost", ADMFLAG_RESERVATION)) {
-				ToggleStopSound(client);
-			} else {
-				ReplyToCommand(client, "[SM] You have no access!");
-			}
+			ToggleStopSound(client);
 		}
 	}
 }
@@ -95,13 +91,9 @@ public void OnClientCookiesCached(client)
 public Action Command_StopSound(client, args)
 {
 	if (AreClientCookiesCached(client)) {
-		if (CheckCommandAccess(client, "sm_fpsboost", ADMFLAG_RESERVATION)) {
-			ToggleStopSound(client);	
-		} else {
-			ReplyToCommand(client, "[SM] Você precisa ser subscriber para ter acesso ao boost de FPS!");	
-		}
+		ToggleStopSound(client);
 	} else {
-		ReplyToCommand(client, "[SM] Aguardando cookies, por favor tente novamente...");
+		ReplyToCommand(client, "[SM] Aguardando cookies, por favor tente novamente mais tarde...");
 	}
 	
 	return Plugin_Handled;
